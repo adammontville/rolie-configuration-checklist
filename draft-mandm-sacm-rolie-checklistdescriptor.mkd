@@ -1,0 +1,127 @@
+---
+coding: utf-8
+
+title: Definition of the ROLIE configuration checklist Extension
+abbrev: rolie-cc-ext
+docname: draft-mandm-sacm-rolie-configuration-checklist-00
+category: info
+
+stand_alone: yes
+pi: [toc, sortrefs, symrefs, comments]
+
+author:
+  -
+    ins: A. Montville
+    name: Adam Montville
+    org: Center for Internet Security
+    street: 31 Tech Valley Drive
+    city: East Greenbush, NY
+    code: 78641
+    country: USA
+    email: adam.w.montville@gmail.com
+  -
+    ins: B. Munyan
+    name: Bill Munyan
+    org: Center for Internet Security
+    street: 31 Tech Valley Drive
+    city: East Greenbush, NY
+    code: 78641
+    country: USA
+    email: billmunyan@gmail.com
+
+informative:
+  NIST_800-53:
+    target: http://deusty.blogspot.com/2007/09/stunt-out-of-band-channels.html
+    title: NIST 800-53
+    author:
+      name: Robbie Hanson
+      ins: R. Hanson
+    date: 2007-09-17
+
+  CIS_Critical_Controls:
+    target: https://www.cisecurity.org/critical-controls/
+    title: CIS Critical Security Controls
+    date: 2016-08-31
+
+  PCI_DSS:
+    target: https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss
+    title: PCI Data Security Standard
+    date: 2016-04
+
+--- abstract
+
+This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE's atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined that describe the use of specific formats and link relations pertaining to the new information-type.
+
+--- middle
+
+{: #introduction}
+# Introduction
+
+This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol {{!I-D.ietf-mile-rolie}} to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework ({{CIS_Critical_Controls}}, {{PCI_DSS}}, {{NIST_800-53}} etc.), which often prescribe that an enterprise define a standard, secure configuration for each technology they operate.  Such standard secure configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.
+
+
+{: #terminology}
+# Terminology
+
+Configuration Checklist
+: TBD
+
+Configuration Item
+: Generally synonymous with endpoint attribute.
+
+Configuration Recommendation
+: TBD
+
+TODO: Others??
+: TBD
+
+
+{: #extending-rolie}
+# ROLIE Extensions and Registrations
+
+
+{: #category-extension-point}
+## atom:category:information-type Extension
+
+The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  The purpose of the configuration-checklist information-type is to identify the set of recommendations and not individual recommentations.
+
+
+{: #format-extension-point}
+## rolie:format Extension
+
+TODO: Need to verify that the rolie:format element can be used for at least the following sets of formats: XCCDF, XCCDF+OVAL, SCAP, XCCDF+X, XCCDF+OVAL+SCE, and so on.  Would all of these simply be "XCCDF"?  (If so, that seems less helpful.)
+
+This document does not specify any additional requirements for use of the rolie:format element.
+
+{: #atom-link-registrations}
+## atom:link Registrations
+
+TODO: Can there be multiple of these links?  For example, I really want more than one target-platform and more than one profile.
+
+|Name|Description|Conformance|
+|ancestor|Links to a configuration checklist supersceded by that described in this entry|MAY|
+|target-platform|Links to a software descriptor resource defining the software subject to this configuration checklist entry|SHOULD|
+|version|Links to a text resource indicating the version of the configuration checklist|MUST|
+
+
+{: #iana-considerations}
+# IANA Considerations
+
+Per this document, IANA has added an entry to the "ROLIE Security Resource Information Type Sub-Registry" registry located at [https://www.iana.org/assignments/rolie/category/information-type](https://www.iana.org/assignments/rolie/category/information-type).
+
+name:
+: configuration-checklist
+
+index:
+: TBD
+
+reference:
+: TBD
+	
+# Security Considerations
+TBD
+
+# Privacy Considerations
+TBD 
+
+--- back
