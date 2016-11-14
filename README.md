@@ -16,7 +16,6 @@ If you have **editorial** suggestions, you can fork and submit a pull request or
 This draft is being edited in Markdown, but we've included all output steps of the build process.  To build from the Markdown file, you're going to need to install `kramdown-2629` (Ruby) and `xml2rfc` (Python).
 
 Installing `kramdown-2629`:
-
 ```sh
 gem install kramdown-rfc2629
 ```
