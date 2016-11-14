@@ -17,7 +17,7 @@ This draft is being edited in Markdown, but we've included all output steps of t
 
 Installing `kramdown-2629`:
 
-```
+```sh
 gem install kramdown-rfc2629
 ```
 
