@@ -80,10 +80,10 @@ TODO: There needs to be a "normative" reference to the SCAP 1.2/3 specifications
 
 {: #new-information-types}
 # New information-types
-This document defines a new information-type value for "configuration checklist"
+This document defines a new information-type value for "configuration-checklist"
 
 {: #checklist-information-type}
-## The "configuration checklist" information-type
+## The "configuration-checklist" information-type
 The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.
 
 - A "Data Stream": 
@@ -94,45 +94,51 @@ The "configuration-checklist" information type represents a body of information 
 	- Description
 	- Rationale
 	- Remediation Instructions
-	- A "check"
+	- Information, described in the dialect of a supported "check system", indicating the method(s) used to audit the checklist configuration item.
 - Applicable Platform Information
-- 
+- Information regarding a set of patches to be evaluated
+- Any supported "tailoring" information, providing a method for evaluating entities to refine the recommendations in the data stream without modifying the published data stream content. (WKM NOTE:  Does "tailoring" need to be here?  Why would any tailoring be included in a published feed?  Unless the organization is re-publishing the content with their tailoring included.)
 
 {: usage-in-atom-publishing-protocol}
 # Usage of Configuration Checklist Information in the Atom Publishing Protocol
-These requirements apply when a ROLIE repository contains any Collections, who's href points to an atom:feed who's atom:category element contains a scheme attribute of "urn:ietf:params:rolie:category:information-type" and a term attribute of the new "configuration checklist" information-type.
+These requirements apply when a ROLIE repository contains any Collections, who's href points to an atom:feed who's atom:category element contains a scheme attribute of "urn:ietf:params:rolie:category:information-type" and a term attribute of the new "configuration-checklist" information-type.
 
+    <atom:category scheme="urn:ietf:params:rolie:category:information-type" term="configuration-checklist">...</atom:category>
 
+{: #atom-entry-extension-point}
+# Requirements for the `atom:entry` Element
+The following sections describe the various requirements for the `atom:entry` element, and it's child elements, when publishing configuration checklist information to a ROLIE repository.
 
+## The `atom:content` Element ##
+Information about the proposed serialization types for configuration checklists
+- PDF
+- Text
+- Word
+- Excel
+- XML via DSC
+- JSON?
 
 {: #format-extension-point}
-## rolie:format Extension
-
-TODO: Need to verify that the rolie:format element can be used for at least the following sets of formats: XCCDF, XCCDF+OVAL, SCAP, XCCDF+X, XCCDF+OVAL+SCE, and so on.  Would all of these simply be "XCCDF"?  (If so, that seems less helpful.)
-- PDF
--- The entry is a link to a PDF document.
-- XCCDF (Either 1.1 or 1.2)
--- The entry is the assessment content using only check systems which are self-contained in the XCCDF (such as ECL-based CIS benchmark content - see OSX content)
-- SCAP 1.1 (4-file format)
--- XCCDF
--- OVAL
--- CPE-Dictionary
--- CPE-OVAL
-- SCAP 1.2
--- data-stream-collection
+## The `rolie:format` Element
+A configuration checklist may be published by an organization using numerous formats, such as PDF, Word or Excel documents, and automation content using XML or JSON data models.
 
 
 This document does not specify any additional requirements for use of the rolie:format element.
 
 {: #rolie-properties}
-## rolie:property metadata for configuration checklists
+## Configuration checklist metadata included in the `rolie:property` Element
+A breadth of metadata may be included with a configuration checklist as identifying information.  A publishing organization may wish to recognize or attribute checklist authors or contributors, or maintain a revision/version history over time.  Other metadata that may be included could indicate the various categories of products to which the checklist applies, such as Operating System, Network Device, or Application Server.
+
+The following list describes various `rolie:property` constructs.
 - author (0..n)
+	- An unbounded number of `rolie:property` elements with a `name` attribute of "author" may be included to indicate those individuals noted as the authors of the configuration checklist.
 - contributor (0..n)
-- checklist version
-- title
+	- An unbounded number of `rolie:property` elements with a `name` attribute of "contributor" may be included to indicate those individuals noted as recognized contributors to the configuration checklist and/or the recommendations contained within.
+- checklist version: The `value` of the "checklist version" property indicates the version number of the configuration checklist, such as `3.1.1`
+- title: The `value` of the "title" property indicates the document title of the configuration checklist, such as "CIS Benchmark for Microsoft Windows Server 2012 R2"
 - publication date
 - overview
-- product category (0..n), such as
+- [NIST NCP Product Categories] product category (0..n), such as
 	- Antivirus Software
 	- Application Server 
 	- Auditing
