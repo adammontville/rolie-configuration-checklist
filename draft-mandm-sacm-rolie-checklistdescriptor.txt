@@ -5,7 +5,7 @@
 Network Working Group                                       A. Montville
 Internet-Draft                                                 B. Munyan
 Intended status: Informational              Center for Internet Security
-Expires: May 19, 2017                                  November 15, 2016
+Expires: September 29, 2017                               March 28, 2017
 
 
        Definition of the ROLIE configuration checklist Extension
@@ -35,11 +35,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 19, 2017.
+   This Internet-Draft will expire on September 29, 2017.
 
 Copyright Notice
 
-   Copyright (c) 2016 IETF Trust and the persons identified as the
+   Copyright (c) 2017 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 1]
+Montville & Munyan     Expires September 29, 2017               [Page 1]
 
-Internet-Draft                rolie-cc-ext                 November 2016
+Internet-Draft                rolie-cc-ext                    March 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 2]
+Montville & Munyan     Expires September 29, 2017               [Page 2]
 
-Internet-Draft                rolie-cc-ext                 November 2016
+Internet-Draft                rolie-cc-ext                    March 2017
 
 
 3.  ROLIE Extensions and Registrations
@@ -165,9 +165,9 @@ Internet-Draft                rolie-cc-ext                 November 2016
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 3]
+Montville & Munyan     Expires September 29, 2017               [Page 3]
 
-Internet-Draft                rolie-cc-ext                 November 2016
+Internet-Draft                rolie-cc-ext                    March 2017
 
 
 4.  IANA Considerations
@@ -221,9 +221,9 @@ Internet-Draft                rolie-cc-ext                 November 2016
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 4]
+Montville & Munyan     Expires September 29, 2017               [Page 4]
 
-Internet-Draft                rolie-cc-ext                 November 2016
+Internet-Draft                rolie-cc-ext                    March 2017
 
 
 Authors' Addresses
@@ -277,4 +277,4 @@ Authors' Addresses
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 5]
+Montville & Munyan     Expires September 29, 2017               [Page 5]

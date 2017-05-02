@@ -11,23 +11,23 @@ pi: [toc, sortrefs, symrefs, comments]
 
 author:
   -
-    ins: A. Montville
-    name: Adam Montville
-    org: Center for Internet Security
-    street: 31 Tech Valley Drive
-    city: East Greenbush, NY
-    code: 78641
-    country: USA
-    email: adam.w.montville@gmail.com
-  -
     ins: B. Munyan
     name: Bill Munyan
     org: Center for Internet Security
     street: 31 Tech Valley Drive
     city: East Greenbush, NY
-    code: 78641
+    code: 12061
     country: USA
-    email: billmunyan@gmail.com
+    email: bill.munyan.ietf@gmail.com
+  -
+    ins: A. Montville
+    name: Adam Montville
+    org: Center for Internet Security
+    street: 31 Tech Valley Drive
+    city: East Greenbush, NY
+    code: 12061
+    country: USA
+    email: adam.w.montville@gmail.com
 
 informative:
   NIST_800-53:
@@ -50,7 +50,7 @@ informative:
 
 --- abstract
 
-This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE's atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined that describe the use of specific formats and link relations pertaining to the new information-type.
+This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE's atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined which describe the use of specific formats and link relations pertaining to the new information-type.
 
 --- middle
 
@@ -64,34 +64,116 @@ This document defines an extension to the Resource-Oriented Lightweight Informat
 # Terminology
 
 Configuration Checklist
-: TBD
+A configuration checklist is an organized collection of rules about a particular kind of system or platform.
 
 Configuration Item
 : Generally synonymous with endpoint attribute.
 
 Configuration Recommendation
-: TBD
+A configuration recommendation is an expression of the desired posture of one or more configuration items.  A configuration recommendation generally includes the description of the recommendation, a rationale statement, and the expected state of collected posture information.
 
 TODO: Others??
 : TBD
 
-
-{: #extending-rolie}
-# ROLIE Extensions and Registrations
+TODO: There needs to be a "normative" reference to the SCAP 1.2/3 specifications and schema definitions
 
 
-{: #category-extension-point}
-## atom:category:information-type Extension
+{: #new-information-types}
+# New information-types
+This document defines a new information-type value for "configuration checklist"
 
-The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  The purpose of the configuration-checklist information-type is to identify the set of recommendations and not individual recommentations.
+{: #checklist-information-type}
+## The "configuration checklist" information-type
+The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.
+
+- A "Data Stream": 
+- A "Benchmark"
+- A "Profile"
+- A "Value"
+- A "Rule" or "Group" of Rules
+	- Description
+	- Rationale
+	- Remediation Instructions
+	- A "check"
+- Applicable Platform Information
+- 
+
+{: usage-in-atom-publishing-protocol}
+# Usage of Configuration Checklist Information in the Atom Publishing Protocol
+These requirements apply when a ROLIE repository contains any Collections, who's href points to an atom:feed who's atom:category element contains a scheme attribute of "urn:ietf:params:rolie:category:information-type" and a term attribute of the new "configuration checklist" information-type.
+
+
 
 
 {: #format-extension-point}
 ## rolie:format Extension
 
 TODO: Need to verify that the rolie:format element can be used for at least the following sets of formats: XCCDF, XCCDF+OVAL, SCAP, XCCDF+X, XCCDF+OVAL+SCE, and so on.  Would all of these simply be "XCCDF"?  (If so, that seems less helpful.)
+- PDF
+-- The entry is a link to a PDF document.
+- XCCDF (Either 1.1 or 1.2)
+-- The entry is the assessment content using only check systems which are self-contained in the XCCDF (such as ECL-based CIS benchmark content - see OSX content)
+- SCAP 1.1 (4-file format)
+-- XCCDF
+-- OVAL
+-- CPE-Dictionary
+-- CPE-OVAL
+- SCAP 1.2
+-- data-stream-collection
+
 
 This document does not specify any additional requirements for use of the rolie:format element.
+
+{: #rolie-properties}
+## rolie:property metadata for configuration checklists
+- author (0..n)
+- contributor (0..n)
+- checklist version
+- title
+- publication date
+- overview
+- product category (0..n), such as
+	- Antivirus Software
+	- Application Server 
+	- Auditing
+	- Authentication
+	- Automation/Productivity Application Suite
+	- Client and Server Encryption
+	- Configuration Management Software
+	- Database Management System
+	- Desktop Application
+	- Desktop Client
+	- DHCP Server
+	- Directory Service
+	- DNS Server
+	- Email Server
+	- Encryption Software
+	- Enterprise Application
+	- File Encryption
+	- Firewall
+	- Firmware
+	- Handheld Device
+	- Identity Management
+	- Intrusion Detection System
+	- KVM
+	- Mail Server
+	- Malware
+	- Mobile Solution
+	- Monitoring
+	- Multi-Functional Peripheral
+	- Network Router
+	- Network Switch
+	- Office Suite
+	- Operating System
+	- Peripheral Device
+	- Security Server
+	- Server
+	- Virtual Machine
+	- Virtualization Software
+	- Web Browser
+	- Web Server
+	- Wireless Email
+	- Wireless Network
 
 {: #atom-link-registrations}
 ## atom:link Registrations
@@ -108,6 +190,15 @@ TODO: Can there be multiple of these links?  For example, I really want more tha
 # IANA Considerations
 
 Per this document, IANA has added an entry to the "ROLIE Security Resource Information Type Sub-Registry" registry located at [https://www.iana.org/assignments/rolie/category/information-type](https://www.iana.org/assignments/rolie/category/information-type).
+
+New IANA table for "ROLIE Entry Format"
+- scap-1.2
+- PDF
+- xccdf-1.2-collection
+- oval
+- cvrf
+- cve (should we reuse the enumref?); Look at the "enumref" and see if we can copy/paste configuration checklist-specific information in a similar manner?  Can we then include that enum reference in the ROLIE extension document or should we create a new "enumref" document separately?
+- vulnerability
 
 name:
 : configuration-checklist
