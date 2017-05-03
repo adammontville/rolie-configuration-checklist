@@ -91,10 +91,10 @@ The "configuration-checklist" information type represents a body of information 
 - A "Profile"
 - A "Value"
 - A "Rule" or "Group" of Rules
-	- Description
-	- Rationale
-	- Remediation Instructions
-	- Information, described in the dialect of a supported "check system", indicating the method(s) used to audit the checklist configuration item.
+    - Description
+    - Rationale
+    - Remediation Instructions
+    - Information, described in the dialect of a supported "check system", indicating the method(s) used to audit the checklist configuration item.
 - Applicable Platform Information
 - Information regarding a set of patches to be evaluated
 - Any supported "tailoring" information, providing a method for evaluating entities to refine the recommendations in the data stream without modifying the published data stream content. (WKM NOTE:  Does "tailoring" need to be here?  Why would any tailoring be included in a published feed?  Unless the organization is re-publishing the content with their tailoring included.)
@@ -103,14 +103,17 @@ The "configuration-checklist" information type represents a body of information 
 # Usage of Configuration Checklist Information in the Atom Publishing Protocol
 These requirements apply when a ROLIE repository contains any Collections, who's href points to an atom:feed who's atom:category element contains a scheme attribute of "urn:ietf:params:rolie:category:information-type" and a term attribute of the new "configuration-checklist" information-type.
 
-    <atom:category scheme="urn:ietf:params:rolie:category:information-type" term="configuration-checklist">...</atom:category>
+    <atom:category 
+      scheme="urn:ietf:params:rolie:category:information-type" 
+      term="configuration-checklist">...</atom:category>
 
 {: #atom-entry-extension-point}
-# Requirements for the `atom:entry` Element
+# Requirements for the 'atom:entry' Element
 The following sections describe the various requirements for the `atom:entry` element, and it's child elements, when publishing configuration checklist information to a ROLIE repository.
 
-## The `atom:content` Element ##
+## The 'atom:content' Element ##
 Information about the proposed serialization types for configuration checklists
+
 - PDF
 - Text
 - Word
@@ -119,67 +122,68 @@ Information about the proposed serialization types for configuration checklists
 - JSON?
 
 {: #format-extension-point}
-## The `rolie:format` Element
+## The 'rolie:format' Element
 A configuration checklist may be published by an organization using numerous formats, such as PDF, Word or Excel documents, and automation content using XML or JSON data models.
 
 
 This document does not specify any additional requirements for use of the rolie:format element.
 
 {: #rolie-properties}
-## Configuration checklist metadata included in the `rolie:property` Element
+## Configuration checklist metadata included in the 'rolie:property' Element
 A breadth of metadata may be included with a configuration checklist as identifying information.  A publishing organization may wish to recognize or attribute checklist authors or contributors, or maintain a revision/version history over time.  Other metadata that may be included could indicate the various categories of products to which the checklist applies, such as Operating System, Network Device, or Application Server.
 
-The following list describes various `rolie:property` constructs.
+The following list describes various 'rolie:property' constructs.
+
 - author (0..n)
-	- An unbounded number of `rolie:property` elements with a `name` attribute of "author" may be included to indicate those individuals noted as the authors of the configuration checklist.
+    - An unbounded number of `rolie:property` elements with a `name` attribute of "author" may be included to indicate those individuals noted as the authors of the configuration checklist.
 - contributor (0..n)
-	- An unbounded number of `rolie:property` elements with a `name` attribute of "contributor" may be included to indicate those individuals noted as recognized contributors to the configuration checklist and/or the recommendations contained within.
+    - An unbounded number of `rolie:property` elements with a `name` attribute of "contributor" may be included to indicate those individuals noted as recognized contributors to the configuration checklist and/or the recommendations contained within.
 - checklist version: The `value` of the "checklist version" property indicates the version number of the configuration checklist, such as `3.1.1`
 - title: The `value` of the "title" property indicates the document title of the configuration checklist, such as "CIS Benchmark for Microsoft Windows Server 2012 R2"
 - publication date
 - overview
-- [NIST NCP Product Categories] product category (0..n), such as
-	- Antivirus Software
-	- Application Server 
-	- Auditing
-	- Authentication
-	- Automation/Productivity Application Suite
-	- Client and Server Encryption
-	- Configuration Management Software
-	- Database Management System
-	- Desktop Application
-	- Desktop Client
-	- DHCP Server
-	- Directory Service
-	- DNS Server
-	- Email Server
-	- Encryption Software
-	- Enterprise Application
-	- File Encryption
-	- Firewall
-	- Firmware
-	- Handheld Device
-	- Identity Management
-	- Intrusion Detection System
-	- KVM
-	- Mail Server
-	- Malware
-	- Mobile Solution
-	- Monitoring
-	- Multi-Functional Peripheral
-	- Network Router
-	- Network Switch
-	- Office Suite
-	- Operating System
-	- Peripheral Device
-	- Security Server
-	- Server
-	- Virtual Machine
-	- Virtualization Software
-	- Web Browser
-	- Web Server
-	- Wireless Email
-	- Wireless Network
+- Product category (0..n), such as
+    - Antivirus Software
+    - Application Server 
+    - Auditing
+    - Authentication
+    - Automation/Productivity Application Suite
+    - Client and Server Encryption
+    - Configuration Management Software
+    - Database Management System
+    - Desktop Application
+    - Desktop Client
+    - DHCP Server
+    - Directory Service
+    - DNS Server
+    - Email Server
+    - Encryption Software
+    - Enterprise Application
+    - File Encryption
+    - Firewall
+    - Firmware
+    - Handheld Device
+    - Identity Management
+    - Intrusion Detection System
+    - KVM
+    - Mail Server
+    - Malware
+    - Mobile Solution
+    - Monitoring
+    - Multi-Functional Peripheral
+    - Network Router
+    - Network Switch
+    - Office Suite
+    - Operating System
+    - Peripheral Device
+    - Security Server
+    - Server
+    - Virtual Machine
+    - Virtualization Software
+    - Web Browser
+    - Web Server
+    - Wireless Email
+    - Wireless Network
 
 {: #atom-link-registrations}
 ## atom:link Registrations
@@ -198,6 +202,7 @@ TODO: Can there be multiple of these links?  For example, I really want more tha
 Per this document, IANA has added an entry to the "ROLIE Security Resource Information Type Sub-Registry" registry located at [https://www.iana.org/assignments/rolie/category/information-type](https://www.iana.org/assignments/rolie/category/information-type).
 
 New IANA table for "ROLIE Entry Format"
+
 - scap-1.2
 - PDF
 - xccdf-1.2-collection
@@ -214,7 +219,7 @@ index:
 
 reference:
 : TBD
-	
+
 # Security Considerations
 TBD
 
