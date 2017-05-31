@@ -2,10 +2,10 @@
 
 
 
-Network Working Group                                       A. Montville
-Internet-Draft                                                 B. Munyan
+Network Working Group                                          B. Munyan
+Internet-Draft                                              A. Montville
 Intended status: Informational              Center for Internet Security
-Expires: May 19, 2017                                  November 15, 2016
+Expires: December 2, 2017                                   May 31, 2017
 
 
        Definition of the ROLIE configuration checklist Extension
@@ -16,8 +16,8 @@ Abstract
    This document extends the Resource-Oriented Lightweight Information
    Exchange (ROLIE) core by defining a new information-type to ROLIE's
    atom:category pertaining to security configuration checklists.
-   Additional supporting requirements are also defined that describe the
-   use of specific formats and link relations pertaining to the new
+   Additional supporting requirements are also defined which describe
+   the use of specific formats and link relations pertaining to the new
    information-type.
 
 Status of This Memo
@@ -35,11 +35,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 19, 2017.
+   This Internet-Draft will expire on December 2, 2017.
 
 Copyright Notice
 
-   Copyright (c) 2016 IETF Trust and the persons identified as the
+   Copyright (c) 2017 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 1]
+Munyan & Montville      Expires December 2, 2017                [Page 1]
 
-Internet-Draft                rolie-cc-ext                 November 2016
+Internet-Draft                rolie-cc-ext                      May 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -65,17 +65,23 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   2
-   3.  ROLIE Extensions and Registrations  . . . . . . . . . . . . .   3
-     3.1.  atom:category:information-type Extension  . . . . . . . .   3
-     3.2.  rolie:format Extension  . . . . . . . . . . . . . . . . .   3
-     3.3.  atom:link Registrations . . . . . . . . . . . . . . . . .   3
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
-   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   4
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   4
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   4
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .   4
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   5
+   3.  New information-types . . . . . . . . . . . . . . . . . . . .   3
+     3.1.  The "configuration-checklist" information-type  . . . . .   3
+   4.  Usage of Configuration Checklist Information in the Atom
+       Publishing Protocol . . . . . . . . . . . . . . . . . . . . .   4
+   5.  Requirements for the 'atom:entry' Element . . . . . . . . . .   4
+     5.1.  The 'atom:content' Element  . . . . . . . . . . . . . . .   4
+     5.2.  The 'rolie:format' Element  . . . . . . . . . . . . . . .   5
+     5.3.  Configuration checklist metadata included in the
+           'rolie:property' Element  . . . . . . . . . . . . . . . .   5
+     5.4.  atom:link Registrations . . . . . . . . . . . . . . . . .   7
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   8.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   9
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
 
@@ -85,8 +91,8 @@ Table of Contents
    checklist information.  Many enterprises operate according to
    guidance provided to them by a control framework
    ([CIS_Critical_Controls], [PCI_DSS], [NIST_800-53] etc.), which often
-   prescribe that an enterprise define a standard, secure configuration
-   for each technology they operate.  Such standard secure
+   prescribe that an enterprise define a standard, security-minded
+   configuration for each technology they operate.  Such standard
    configurations are often referred to as configuration checklists.
    These configuration checklists contain a set of configuration
    recommendations for a given endpoint.  A configuration recommendation
@@ -95,53 +101,298 @@ Table of Contents
 
 2.  Terminology
 
-   Configuration Checklist  TBD
+   Configuration Checklist A configuration checklist is an organized
+   collection of rules about a particular kind of system or platform.
 
    Configuration Item  Generally synonymous with endpoint attribute.
 
-   Configuration Recommendation  TBD
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 2]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+   Configuration Recommendation A configuration recommendation is an
+   expression of the desired posture of one or more configuration items.
+   A configuration recommendation generally includes the description of
+   the recommendation, a rationale statement, and the expected state of
+   collected posture information.
 
    TODO: Others??  TBD
 
+   TODO: There needs to be a "normative" reference to the SCAP 1.2/3
+   specifications and schema definitions
 
+3.  New information-types
 
+   This document defines a new "information-type" value of
+   "configuration-checklist".
 
-
-
-
-Montville & Munyan        Expires May 19, 2017                  [Page 2]
-
-Internet-Draft                rolie-cc-ext                 November 2016
-
-
-3.  ROLIE Extensions and Registrations
-
-3.1.  atom:category:information-type Extension
+3.1.  The "configuration-checklist" information-type
 
    The "configuration-checklist" information type represents a body of
    information describing a set of configuration recommendations.  A
-   configuration recommendation is, minimally, a configuration item
-   paired with a recommended value or range of values.  Depending on the
-   source, a configuration recommendation may carry with it additional
-   information (i.e. description, references, rationale, etc.).  The
-   purpose of the configuration-checklist information-type is to
-   identify the set of recommendations and not individual
-   recommentations.
+   configuration recommendation is, minimally, a single configuration
+   item paired with a recommended value or range of values.  Depending
+   on the source, a configuration recommendation may carry with it
+   additional information (i.e. description, references, rationale,
+   etc.).  Provided below is a non-exhaustive list of information that
+   may be considered as components of a configuration checklist.
 
-3.2.  rolie:format Extension
+   o  A "Data Stream":
 
-   TODO: Need to verify that the rolie:format element can be used for at
-   least the following sets of formats: XCCDF, XCCDF+OVAL, SCAP,
-   XCCDF+X, XCCDF+OVAL+SCE, and so on.  Would all of these simply be
-   "XCCDF"?  (If so, that seems less helpful.)
+   o  A "Benchmark"
+
+   o  A "Profile"
+
+   o  A "Value"
+
+   o  A "Rule" or "Group" of Rules
+
+      *  Description
+
+      *  Rationale
+
+      *  Remediation Instructions
+
+      *  Information, described in the dialect of a supported "check
+         system", indicating the method(s) used to audit the checklist
+         configuration item.
+
+   o  Applicable Platform Information
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 3]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+   o  Information regarding a set of patches to be evaluated
+
+   o  Any supported "tailoring" information, providing a method for
+      evaluating entities to refine the recommendations in the data
+      stream without modifying the published data stream content.  (WKM
+      NOTE: Does "tailoring" need to be here?  Why would any tailoring
+      be included in a published feed?  Unless the organization is re-
+      publishing the content with their tailoring included.)
+
+4.  Usage of Configuration Checklist Information in the Atom Publishing
+    Protocol
+
+   These requirements apply when a ROLIE repository contains any
+   Collections, who's href points to an atom:feed who's atom:category
+   element contains a scheme attribute of
+   "urn:ietf:params:rolie:category:information-type" and a term
+   attribute of the new "configuration-checklist" information-type.
+
+   <atom:category
+     scheme="urn:ietf:params:rolie:category:information-type"
+     term="configuration-checklist">...</atom:category>
+
+5.  Requirements for the 'atom:entry' Element
+
+   The following sections describe the various requirements for the
+   "atom:entry" element, and it's child elements, when publishing
+   configuration checklist information to a ROLIE repository.
+
+5.1.  The 'atom:content' Element
+
+   Information about the proposed serialization types for configuration
+   checklists
+
+   o  PDF
+
+   o  Text
+
+   o  Word
+
+   o  Excel
+
+   o  XML via DSC
+
+   o  JSON?
+
+
+
+
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 4]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+5.2.  The 'rolie:format' Element
+
+   A configuration checklist may be published by an organization using
+   numerous formats, such as PDF, Word or Excel documents, and
+   automation content using XML or JSON data models.
 
    This document does not specify any additional requirements for use of
    the rolie:format element.
 
-3.3.  atom:link Registrations
+5.3.  Configuration checklist metadata included in the 'rolie:property'
+      Element
+
+   A breadth of metadata may be included with a configuration checklist
+   as identifying information.  A publishing organization may wish to
+   recognize or attribute checklist authors or contributors, or maintain
+   a revision/version history over time.  Other metadata that may be
+   included could indicate the various categories of products to which
+   the checklist applies, such as Operating System, Network Device, or
+   Application Server.
+
+   The following list describes various 'rolie:property' constructs.
+
+   o  author (0..n)
+
+      *  An unbounded number of "rolie:property" elements with a "name"
+         attribute of "author" may be included to indicate those
+         individuals noted as the authors of the configuration
+         checklist.
+
+   o  contributor (0..n)
+
+      *  An unbounded number of "rolie:property" elements with a "name"
+         attribute of "contributor" may be included to indicate those
+         individuals noted as recognized contributors to the
+         configuration checklist and/or the recommendations contained
+         within.
+
+   o  checklist version: The "value" of the "checklist version" property
+      indicates the version number of the configuration checklist, such
+      as "3.1.1"
+
+   o  title: The "value" of the "title" property indicates the document
+      title of the configuration checklist, such as "CIS Benchmark for
+      Microsoft Windows Server 2012 R2"
+
+   o  publication date
+
+   o  overview
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 5]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+   o  Product category (0..n), such as
+
+      *  Antivirus Software
+
+      *  Application Server
+
+      *  Auditing
+
+      *  Authentication
+
+      *  Automation/Productivity Application Suite
+
+      *  Client and Server Encryption
+
+      *  Configuration Management Software
+
+      *  Database Management System
+
+      *  Desktop Application
+
+      *  Desktop Client
+
+      *  DHCP Server
+
+      *  Directory Service
+
+      *  DNS Server
+
+      *  Email Server
+
+      *  Encryption Software
+
+      *  Enterprise Application
+
+      *  File Encryption
+
+      *  Firewall
+
+      *  Firmware
+
+      *  Handheld Device
+
+      *  Identity Management
+
+      *  Intrusion Detection System
+
+      *  KVM
+
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 6]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+      *  Mail Server
+
+      *  Malware
+
+      *  Mobile Solution
+
+      *  Monitoring
+
+      *  Multi-Functional Peripheral
+
+      *  Network Router
+
+      *  Network Switch
+
+      *  Office Suite
+
+      *  Operating System
+
+      *  Peripheral Device
+
+      *  Security Server
+
+      *  Server
+
+      *  Virtual Machine
+
+      *  Virtualization Software
+
+      *  Web Browser
+
+      *  Web Server
+
+      *  Wireless Email
+
+      *  Wireless Network
+
+5.4.  atom:link Registrations
 
    TODO: Can there be multiple of these links?  For example, I really
    want more than one target-platform and more than one profile.
+
+
+
+
+
+
+
+
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 7]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
 
    +-----------------+-----------------------------------+-------------+
    | Name            | Description                       | Conformance |
@@ -160,21 +411,31 @@ Internet-Draft                rolie-cc-ext                 November 2016
    |                 | configuration checklist           |             |
    +-----------------+-----------------------------------+-------------+
 
-
-
-
-
-
-Montville & Munyan        Expires May 19, 2017                  [Page 3]
-
-Internet-Draft                rolie-cc-ext                 November 2016
-
-
-4.  IANA Considerations
+6.  IANA Considerations
 
    Per this document, IANA has added an entry to the "ROLIE Security
    Resource Information Type Sub-Registry" registry located at
    https://www.iana.org/assignments/rolie/category/information-type .
+
+   New IANA table for "ROLIE Entry Format"
+
+   o  scap-1.2
+
+   o  PDF
+
+   o  xccdf-1.2-collection
+
+   o  oval
+
+   o  cvrf
+
+   o  cve (should we reuse the enumref?); Look at the "enumref" and see
+      if we can copy/paste configuration checklist-specific information
+      in a similar manner?  Can we then include that enum reference in
+      the ROLIE extension document or should we create a new "enumref"
+      document separately?
+
+   o  vulnerability
 
    name:  configuration-checklist
 
@@ -182,24 +443,31 @@ Internet-Draft                rolie-cc-ext                 November 2016
 
    reference:  TBD
 
-5.  Security Considerations
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 8]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
+
+7.  Security Considerations
 
    TBD
 
-6.  Privacy Considerations
+8.  Privacy Considerations
 
    TBD
 
-7.  References
+9.  References
 
-7.1.  Normative References
+9.1.  Normative References
 
    [I-D.ietf-mile-rolie]
               Field, J., Banghart, S., and D. Waltermire, "Resource-
               Oriented Lightweight Information Exchange", draft-ietf-
-              mile-rolie-05 (work in progress), October 2016.
+              mile-rolie-07 (work in progress), May 2017.
 
-7.2.  Informative References
+9.2.  Informative References
 
    [CIS_Critical_Controls]
               "CIS Critical Security Controls", August 2016,
@@ -214,36 +482,39 @@ Internet-Draft                rolie-cc-ext                 November 2016
               <https://www.pcisecuritystandards.org/
               document_library?category=pcidss&document=pci_dss>.
 
-
-
-
-
-
-
-
-Montville & Munyan        Expires May 19, 2017                  [Page 4]
-
-Internet-Draft                rolie-cc-ext                 November 2016
-
-
 Authors' Addresses
+
+   Bill Munyan
+   Center for Internet Security
+   31 Tech Valley Drive
+   East Greenbush, NY  12061
+   USA
+
+   Email: bill.munyan.ietf@gmail.com
+
+
+
+
+
+
+
+
+
+
+Munyan & Montville      Expires December 2, 2017                [Page 9]
+
+Internet-Draft                rolie-cc-ext                      May 2017
+
 
    Adam Montville
    Center for Internet Security
    31 Tech Valley Drive
-   East Greenbush, NY  78641
+   East Greenbush, NY  12061
    USA
 
    Email: adam.w.montville@gmail.com
 
 
-   Bill Munyan
-   Center for Internet Security
-   31 Tech Valley Drive
-   East Greenbush, NY  78641
-   USA
-
-   Email: billmunyan@gmail.com
 
 
 
@@ -277,4 +548,13 @@ Authors' Addresses
 
 
 
-Montville & Munyan        Expires May 19, 2017                  [Page 5]
+
+
+
+
+
+
+
+
+
+Munyan & Montville      Expires December 2, 2017               [Page 10]

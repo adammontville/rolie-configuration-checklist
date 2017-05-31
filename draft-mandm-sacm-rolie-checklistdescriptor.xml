@@ -15,32 +15,32 @@
   <front>
     <title abbrev="rolie-cc-ext">Definition of the ROLIE configuration checklist Extension</title>
 
-    <author initials="A." surname="Montville" fullname="Adam Montville">
-      <organization>Center for Internet Security</organization>
-      <address>
-        <postal>
-          <street>31 Tech Valley Drive</street>
-          <city>East Greenbush, NY</city>
-          <code>78641</code>
-          <country>USA</country>
-        </postal>
-        <email>adam.w.montville@gmail.com</email>
-      </address>
-    </author>
     <author initials="B." surname="Munyan" fullname="Bill Munyan">
       <organization>Center for Internet Security</organization>
       <address>
         <postal>
           <street>31 Tech Valley Drive</street>
           <city>East Greenbush, NY</city>
-          <code>78641</code>
+          <code>12061</code>
           <country>USA</country>
         </postal>
-        <email>billmunyan@gmail.com</email>
+        <email>bill.munyan.ietf@gmail.com</email>
+      </address>
+    </author>
+    <author initials="A." surname="Montville" fullname="Adam Montville">
+      <organization>Center for Internet Security</organization>
+      <address>
+        <postal>
+          <street>31 Tech Valley Drive</street>
+          <city>East Greenbush, NY</city>
+          <code>12061</code>
+          <country>USA</country>
+        </postal>
+        <email>adam.w.montville@gmail.com</email>
       </address>
     </author>
 
-    <date year="2016" month="November" day="15"/>
+    <date year="2017" month="May" day="31"/>
 
     
     
@@ -49,7 +49,7 @@
     <abstract>
 
 
-<t>This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE’s atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined that describe the use of specific formats and link relations pertaining to the new information-type.</t>
+<t>This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE’s atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined which describe the use of specific formats and link relations pertaining to the new information-type.</t>
 
 
 
@@ -63,35 +63,150 @@
 
 <section anchor="introduction" title="Introduction">
 
-<t>This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <xref target="I-D.ietf-mile-rolie"/> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<xref target="CIS_Critical_Controls"/>, <xref target="PCI_DSS"/>, <xref target="NIST_800-53"/> etc.), which often prescribe that an enterprise define a standard, secure configuration for each technology they operate.  Such standard secure configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</t>
+<t>This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <xref target="I-D.ietf-mile-rolie"/> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<xref target="CIS_Critical_Controls"/>, <xref target="PCI_DSS"/>, <xref target="NIST_800-53"/> etc.), which often prescribe that an enterprise define a standard, security-minded configuration for each technology they operate.  Such standard configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</t>
 
 </section>
 <section anchor="terminology" title="Terminology">
 
+<t>Configuration Checklist
+A configuration checklist is an organized collection of rules about a particular kind of system or platform.</t>
+
 <t><list style="hanging">
-  <t hangText='Configuration Checklist'>
-  TBD</t>
   <t hangText='Configuration Item'>
   Generally synonymous with endpoint attribute.</t>
-  <t hangText='Configuration Recommendation'>
-  TBD</t>
+</list></t>
+
+<t>Configuration Recommendation
+A configuration recommendation is an expression of the desired posture of one or more configuration items.  A configuration recommendation generally includes the description of the recommendation, a rationale statement, and the expected state of collected posture information.</t>
+
+<t><list style="hanging">
   <t hangText='TODO: Others??'>
   TBD</t>
 </list></t>
 
-</section>
-<section anchor="extending-rolie" title="ROLIE Extensions and Registrations">
-
-<section anchor="category-extension-point" title="atom:category:information-type Extension">
-
-<t>The “configuration-checklist” information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  The purpose of the configuration-checklist information-type is to identify the set of recommendations and not individual recommentations.</t>
+<t>TODO: There needs to be a “normative” reference to the SCAP 1.2/3 specifications and schema definitions</t>
 
 </section>
-<section anchor="format-extension-point" title="rolie:format Extension">
+<section anchor="new-information-types" title="New information-types">
+<t>This document defines a new “information-type” value of “configuration-checklist”.</t>
 
-<t>TODO: Need to verify that the rolie:format element can be used for at least the following sets of formats: XCCDF, XCCDF+OVAL, SCAP, XCCDF+X, XCCDF+OVAL+SCE, and so on.  Would all of these simply be “XCCDF”?  (If so, that seems less helpful.)</t>
+<section anchor="checklist-information-type" title="The “configuration-checklist” information-type">
+<t>The “configuration-checklist” information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a single configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.</t>
+
+<t><list style="symbols">
+  <t>A “Data Stream”:</t>
+  <t>A “Benchmark”</t>
+  <t>A “Profile”</t>
+  <t>A “Value”</t>
+  <t>A “Rule” or “Group” of Rules
+  <list style="symbols">
+      <t>Description</t>
+      <t>Rationale</t>
+      <t>Remediation Instructions</t>
+      <t>Information, described in the dialect of a supported “check system”, indicating the method(s) used to audit the checklist configuration item.</t>
+    </list></t>
+  <t>Applicable Platform Information</t>
+  <t>Information regarding a set of patches to be evaluated</t>
+  <t>Any supported “tailoring” information, providing a method for evaluating entities to refine the recommendations in the data stream without modifying the published data stream content. (WKM NOTE:  Does “tailoring” need to be here?  Why would any tailoring be included in a published feed?  Unless the organization is re-publishing the content with their tailoring included.)</t>
+</list></t>
+
+</section>
+</section>
+<section anchor="usage-of-configuration-checklist-information-in-the-atom-publishing-protocol" title="Usage of Configuration Checklist Information in the Atom Publishing Protocol">
+<t>These requirements apply when a ROLIE repository contains any Collections, who’s href points to an atom:feed who’s atom:category element contains a scheme attribute of “urn:ietf:params:rolie:category:information-type” and a term attribute of the new “configuration-checklist” information-type.</t>
+
+<figure><artwork><![CDATA[
+<atom:category 
+  scheme="urn:ietf:params:rolie:category:information-type" 
+  term="configuration-checklist">...</atom:category>
+]]></artwork></figure>
+
+</section>
+<section anchor="atom-entry-extension-point" title="Requirements for the ‘atom:entry’ Element">
+<t>The following sections describe the various requirements for the <spanx style="verb">atom:entry</spanx> element, and it’s child elements, when publishing configuration checklist information to a ROLIE repository.</t>
+
+<section anchor="the-atomcontent-element" title="The ‘atom:content’ Element">
+<t>Information about the proposed serialization types for configuration checklists</t>
+
+<t><list style="symbols">
+  <t>PDF</t>
+  <t>Text</t>
+  <t>Word</t>
+  <t>Excel</t>
+  <t>XML via DSC</t>
+  <t>JSON?</t>
+</list></t>
+
+</section>
+<section anchor="format-extension-point" title="The ‘rolie:format’ Element">
+<t>A configuration checklist may be published by an organization using numerous formats, such as PDF, Word or Excel documents, and automation content using XML or JSON data models.</t>
 
 <t>This document does not specify any additional requirements for use of the rolie:format element.</t>
+
+</section>
+<section anchor="rolie-properties" title="Configuration checklist metadata included in the ‘rolie:property’ Element">
+<t>A breadth of metadata may be included with a configuration checklist as identifying information.  A publishing organization may wish to recognize or attribute checklist authors or contributors, or maintain a revision/version history over time.  Other metadata that may be included could indicate the various categories of products to which the checklist applies, such as Operating System, Network Device, or Application Server.</t>
+
+<t>The following list describes various ‘rolie:property’ constructs.</t>
+
+<t><list style="symbols">
+  <t>author (0..n)
+  <list style="symbols">
+      <t>An unbounded number of <spanx style="verb">rolie:property</spanx> elements with a <spanx style="verb">name</spanx> attribute of “author” may be included to indicate those individuals noted as the authors of the configuration checklist.</t>
+    </list></t>
+  <t>contributor (0..n)
+  <list style="symbols">
+      <t>An unbounded number of <spanx style="verb">rolie:property</spanx> elements with a <spanx style="verb">name</spanx> attribute of “contributor” may be included to indicate those individuals noted as recognized contributors to the configuration checklist and/or the recommendations contained within.</t>
+    </list></t>
+  <t>checklist version: The <spanx style="verb">value</spanx> of the “checklist version” property indicates the version number of the configuration checklist, such as <spanx style="verb">3.1.1</spanx></t>
+  <t>title: The <spanx style="verb">value</spanx> of the “title” property indicates the document title of the configuration checklist, such as “CIS Benchmark for Microsoft Windows Server 2012 R2”</t>
+  <t>publication date</t>
+  <t>overview</t>
+  <t>Product category (0..n), such as
+  <list style="symbols">
+      <t>Antivirus Software</t>
+      <t>Application Server</t>
+      <t>Auditing</t>
+      <t>Authentication</t>
+      <t>Automation/Productivity Application Suite</t>
+      <t>Client and Server Encryption</t>
+      <t>Configuration Management Software</t>
+      <t>Database Management System</t>
+      <t>Desktop Application</t>
+      <t>Desktop Client</t>
+      <t>DHCP Server</t>
+      <t>Directory Service</t>
+      <t>DNS Server</t>
+      <t>Email Server</t>
+      <t>Encryption Software</t>
+      <t>Enterprise Application</t>
+      <t>File Encryption</t>
+      <t>Firewall</t>
+      <t>Firmware</t>
+      <t>Handheld Device</t>
+      <t>Identity Management</t>
+      <t>Intrusion Detection System</t>
+      <t>KVM</t>
+      <t>Mail Server</t>
+      <t>Malware</t>
+      <t>Mobile Solution</t>
+      <t>Monitoring</t>
+      <t>Multi-Functional Peripheral</t>
+      <t>Network Router</t>
+      <t>Network Switch</t>
+      <t>Office Suite</t>
+      <t>Operating System</t>
+      <t>Peripheral Device</t>
+      <t>Security Server</t>
+      <t>Server</t>
+      <t>Virtual Machine</t>
+      <t>Virtualization Software</t>
+      <t>Web Browser</t>
+      <t>Web Server</t>
+      <t>Wireless Email</t>
+      <t>Wireless Network</t>
+    </list></t>
+</list></t>
 
 </section>
 <section anchor="atom-link-registrations" title="atom:link Registrations">
@@ -118,6 +233,18 @@
 <section anchor="iana-considerations" title="IANA Considerations">
 
 <t>Per this document, IANA has added an entry to the “ROLIE Security Resource Information Type Sub-Registry” registry located at <eref target="https://www.iana.org/assignments/rolie/category/information-type">https://www.iana.org/assignments/rolie/category/information-type</eref>.</t>
+
+<t>New IANA table for “ROLIE Entry Format”</t>
+
+<t><list style="symbols">
+  <t>scap-1.2</t>
+  <t>PDF</t>
+  <t>xccdf-1.2-collection</t>
+  <t>oval</t>
+  <t>cvrf</t>
+  <t>cve (should we reuse the enumref?); Look at the “enumref” and see if we can copy/paste configuration checklist-specific information in a similar manner?  Can we then include that enum reference in the ROLIE extension document or should we create a new “enumref” document separately?</t>
+  <t>vulnerability</t>
+</list></t>
 
 <t><list style="hanging">
   <t hangText='name:'>
@@ -165,15 +292,15 @@
     <organization />
 </author>
 
-<date month='October' day='31' year='2016' />
+<date month='May' day='26' year='2017' />
 
-<abstract><t>This document defines a resource-oriented approach for security automation information publication, discovery, and sharing.  Using this approach, producers may publish, share, and exchange representations of security incidents, attack indicators, software vulnerabilities, configuration checklists, and other security automation information as Web-addressable resources.  Furthermore, consumers and other stakeholders may access and search this security information as needed, establishing a rapid and on-demand information exchange network for restricted internal use or public access repositories.  This specification extends the Atom Publishing Protocol and Atom Syndication Format to transport and share security automation resource representations.</t></abstract>
+<abstract><t>This document defines a resource-oriented approach for security automation information publication, discovery, and sharing.  Using this approach, producers may publish, share, and exchange representations of software descriptors, security incidents, attack indicators, software vulnerabilities, configuration checklists, and other security automation information as web-addressable resources. Furthermore, consumers and other stakeholders may access and search this security information as needed, establishing a rapid and on- demand information exchange network for restricted internal use or public access repositories.  This specification extends the Atom Publishing Protocol and Atom Syndication Format to transport and share security automation resource representations.</t></abstract>
 
 </front>
 
-<seriesInfo name='Internet-Draft' value='draft-ietf-mile-rolie-05' />
+<seriesInfo name='Internet-Draft' value='draft-ietf-mile-rolie-07' />
 <format type='TXT'
-        target='http://www.ietf.org/internet-drafts/draft-ietf-mile-rolie-05.txt' />
+        target='http://www.ietf.org/internet-drafts/draft-ietf-mile-rolie-07.txt' />
 </reference>
 
 
@@ -219,49 +346,87 @@
   </back>
 
 <!-- ##markdown-source:
-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
+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
+2+jfxOkALdglAAA=
 
 -->
 
