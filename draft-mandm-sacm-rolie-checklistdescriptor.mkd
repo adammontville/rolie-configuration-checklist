@@ -57,7 +57,7 @@ This document extends the Resource-Oriented Lightweight Information Exchange (RO
 {: #introduction}
 # Introduction
 
-This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol {{!I-D.ietf-mile-rolie}} to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework ({{CIS_Critical_Controls}}, {{PCI_DSS}}, {{NIST_800-53}} etc.), which often prescribe that an enterprise define a standard, secure configuration for each technology they operate.  Such standard secure configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.
+This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol {{!I-D.ietf-mile-rolie}} to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework ({{CIS_Critical_Controls}}, {{PCI_DSS}}, {{NIST_800-53}} etc.), which often prescribe that an enterprise define a standard, security-minded configuration for each technology they operate.  Such standard configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.
 
 
 {: #terminology}
@@ -80,11 +80,11 @@ TODO: There needs to be a "normative" reference to the SCAP 1.2/3 specifications
 
 {: #new-information-types}
 # New information-types
-This document defines a new information-type value for "configuration-checklist"
+This document defines a new "information-type" value of "configuration-checklist".
 
 {: #checklist-information-type}
 ## The "configuration-checklist" information-type
-The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.
+The "configuration-checklist" information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a single configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.
 
 - A "Data Stream": 
 - A "Benchmark"

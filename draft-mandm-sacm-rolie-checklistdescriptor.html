@@ -398,7 +398,7 @@
 
   <meta name="dct.creator" content="Munyan, B. and A. Montville" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-mandm-sacm-rolie-configuration-checklist-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-5-03" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-5-31" />
   <meta name="dct.abstract" content="This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE&#8217;s atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined which describe the use of specific formats and link relations pertaining to the new information-type." />
   <meta name="description" content="This document extends the Resource-Oriented Lightweight Information Exchange (ROLIE) core by defining a new information-type to ROLIE&#8217;s atom:category pertaining to security configuration checklists.  Additional supporting requirements are also defined which describe the use of specific formats and link relations pertaining to the new information-type." />
 
@@ -422,8 +422,8 @@
   <td class="right">Center for Internet Security</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 4, 2017</td>
-  <td class="right">May 03, 2017</td>
+  <td class="left">Expires: December 2, 2017</td>
+  <td class="right">May 31, 2017</td>
 </tr>
 
     	
@@ -443,7 +443,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 4, 2017.</p>
+<p>This Internet-Draft will expire on December 2, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -477,7 +477,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <a href="#I-D.ietf-mile-rolie">[I-D.ietf-mile-rolie]</a> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<a href="#CIS_Critical_Controls">[CIS_Critical_Controls]</a>, <a href="#PCI_DSS">[PCI_DSS]</a>, <a href="#NIST_800-53">[NIST_800-53]</a> etc.), which often prescribe that an enterprise define a standard, secure configuration for each technology they operate.  Such standard secure configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</p>
+<p id="rfc.section.1.p.1">This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <a href="#I-D.ietf-mile-rolie">[I-D.ietf-mile-rolie]</a> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<a href="#CIS_Critical_Controls">[CIS_Critical_Controls]</a>, <a href="#PCI_DSS">[PCI_DSS]</a>, <a href="#NIST_800-53">[NIST_800-53]</a> etc.), which often prescribe that an enterprise define a standard, security-minded configuration for each technology they operate.  Such standard configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology" id="terminology">Terminology</a></h1>
 <p id="rfc.section.2.p.1">Configuration Checklist A configuration checklist is an organized collection of rules about a particular kind of system or platform.</p>
 <p/>
@@ -495,9 +495,9 @@
 </dl>
 <p id="rfc.section.2.p.5">TODO: There needs to be a &#8220;normative&#8221; reference to the SCAP 1.2/3 specifications and schema definitions</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#new-information-types" id="new-information-types">New information-types</a></h1>
-<p id="rfc.section.3.p.1">This document defines a new information-type value for &#8220;configuration-checklist&#8221;</p>
+<p id="rfc.section.3.p.1">This document defines a new &#8220;information-type&#8221; value of &#8220;configuration-checklist&#8221;.</p>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#checklist-information-type" id="checklist-information-type">The &#8220;configuration-checklist&#8221; information-type</a></h1>
-<p id="rfc.section.3.1.p.1">The &#8220;configuration-checklist&#8221; information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.</p>
+<p id="rfc.section.3.1.p.1">The &#8220;configuration-checklist&#8221; information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a single configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.</p>
 <p/>
 
 <ul>
@@ -546,7 +546,7 @@
   <li>title: The <samp>value</samp> of the &#8220;title&#8221; property indicates the document title of the configuration checklist, such as &#8220;CIS Benchmark for Microsoft Windows Server 2012 R2&#8221;</li>
   <li>publication date</li>
   <li>overview</li>
-  <li>NIST NCP Product Categories product category (0..n), such as <ul><li>Antivirus Software</li><li>Application Server</li><li>Auditing</li><li>Authentication</li><li>Automation/Productivity Application Suite</li><li>Client and Server Encryption</li><li>Configuration Management Software</li><li>Database Management System</li><li>Desktop Application</li><li>Desktop Client</li><li>DHCP Server</li><li>Directory Service</li><li>DNS Server</li><li>Email Server</li><li>Encryption Software</li><li>Enterprise Application</li><li>File Encryption</li><li>Firewall</li><li>Firmware</li><li>Handheld Device</li><li>Identity Management</li><li>Intrusion Detection System</li><li>KVM</li><li>Mail Server</li><li>Malware</li><li>Mobile Solution</li><li>Monitoring</li><li>Multi-Functional Peripheral</li><li>Network Router</li><li>Network Switch</li><li>Office Suite</li><li>Operating System</li><li>Peripheral Device</li><li>Security Server</li><li>Server</li><li>Virtual Machine</li><li>Virtualization Software</li><li>Web Browser</li><li>Web Server</li><li>Wireless Email</li><li>Wireless Network</li></ul></li>
+  <li>Product category (0..n), such as <ul><li>Antivirus Software</li><li>Application Server</li><li>Auditing</li><li>Authentication</li><li>Automation/Productivity Application Suite</li><li>Client and Server Encryption</li><li>Configuration Management Software</li><li>Database Management System</li><li>Desktop Application</li><li>Desktop Client</li><li>DHCP Server</li><li>Directory Service</li><li>DNS Server</li><li>Email Server</li><li>Encryption Software</li><li>Enterprise Application</li><li>File Encryption</li><li>Firewall</li><li>Firmware</li><li>Handheld Device</li><li>Identity Management</li><li>Intrusion Detection System</li><li>KVM</li><li>Mail Server</li><li>Malware</li><li>Mobile Solution</li><li>Monitoring</li><li>Multi-Functional Peripheral</li><li>Network Router</li><li>Network Switch</li><li>Office Suite</li><li>Operating System</li><li>Peripheral Device</li><li>Security Server</li><li>Server</li><li>Virtual Machine</li><li>Virtualization Software</li><li>Web Browser</li><li>Web Server</li><li>Wireless Email</li><li>Wireless Network</li></ul></li>
 </ul>
 <h1 id="rfc.section.5.4"><a href="#rfc.section.5.4">5.4.</a> <a href="#atom-link-registrations" id="atom-link-registrations">atom:link Registrations</a></h1>
 <p id="rfc.section.5.4.p.1">TODO: Can there be multiple of these links?  For example, I really want more than one target-platform and more than one profile.</p>
@@ -612,7 +612,7 @@
       <td class="reference">
         <b id="I-D.ietf-mile-rolie">[I-D.ietf-mile-rolie]</b>
       </td>
-      <td class="top"><a>Field, J.</a>, <a>Banghart, S.</a> and <a>D. Waltermire</a>, "<a href="http://tools.ietf.org/html/draft-ietf-mile-rolie-06">Resource-Oriented Lightweight Information Exchange</a>", Internet-Draft draft-ietf-mile-rolie-06, March 2017.</td>
+      <td class="top"><a>Field, J.</a>, <a>Banghart, S.</a> and <a>D. Waltermire</a>, "<a href="http://tools.ietf.org/html/draft-ietf-mile-rolie-07">Resource-Oriented Lightweight Information Exchange</a>", Internet-Draft draft-ietf-mile-rolie-07, May 2017.</td>
     </tr>
   </tbody>
 </table>

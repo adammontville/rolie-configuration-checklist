@@ -40,7 +40,7 @@
       </address>
     </author>
 
-    <date year="2017" month="May" day="03"/>
+    <date year="2017" month="May" day="31"/>
 
     
     
@@ -63,7 +63,7 @@
 
 <section anchor="introduction" title="Introduction">
 
-<t>This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <xref target="I-D.ietf-mile-rolie"/> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<xref target="CIS_Critical_Controls"/>, <xref target="PCI_DSS"/>, <xref target="NIST_800-53"/> etc.), which often prescribe that an enterprise define a standard, secure configuration for each technology they operate.  Such standard secure configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</t>
+<t>This document defines an extension to the Resource-Oriented Lightweight Information Exchange (ROLIE) protocol <xref target="I-D.ietf-mile-rolie"/> to support the publication of configuration checklist information.  Many enterprises operate according to guidance provided to them by a control framework (<xref target="CIS_Critical_Controls"/>, <xref target="PCI_DSS"/>, <xref target="NIST_800-53"/> etc.), which often prescribe that an enterprise define a standard, security-minded configuration for each technology they operate.  Such standard configurations are often referred to as configuration checklists.  These configuration checklists contain a set of configuration recommendations for a given endpoint.  A configuration recommendation prescribes expected values pertaining to one or more discrete endpoint attributes.</t>
 
 </section>
 <section anchor="terminology" title="Terminology">
@@ -88,10 +88,10 @@ A configuration recommendation is an expression of the desired posture of one or
 
 </section>
 <section anchor="new-information-types" title="New information-types">
-<t>This document defines a new information-type value for “configuration-checklist”</t>
+<t>This document defines a new “information-type” value of “configuration-checklist”.</t>
 
 <section anchor="checklist-information-type" title="The “configuration-checklist” information-type">
-<t>The “configuration-checklist” information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.</t>
+<t>The “configuration-checklist” information type represents a body of information describing a set of configuration recommendations.  A configuration recommendation is, minimally, a single configuration item paired with a recommended value or range of values.  Depending on the source, a configuration recommendation may carry with it additional information (i.e. description, references, rationale, etc.).  Provided below is a non-exhaustive list of information that may be considered as components of a configuration checklist.</t>
 
 <t><list style="symbols">
   <t>A “Data Stream”:</t>
@@ -162,7 +162,7 @@ A configuration recommendation is an expression of the desired posture of one or
   <t>title: The <spanx style="verb">value</spanx> of the “title” property indicates the document title of the configuration checklist, such as “CIS Benchmark for Microsoft Windows Server 2012 R2”</t>
   <t>publication date</t>
   <t>overview</t>
-  <t>NIST NCP Product Categories product category (0..n), such as
+  <t>Product category (0..n), such as
   <list style="symbols">
       <t>Antivirus Software</t>
       <t>Application Server</t>
@@ -292,15 +292,15 @@ A configuration recommendation is an expression of the desired posture of one or
     <organization />
 </author>
 
-<date month='March' day='13' year='2017' />
+<date month='May' day='26' year='2017' />
 
-<abstract><t>This document defines a resource-oriented approach for security automation information publication, discovery, and sharing.  Using this approach, producers may publish, share, and exchange representations of security incidents, attack indicators, software vulnerabilities, configuration checklists, and other security automation information as Web-addressable resources.  Furthermore, consumers and other stakeholders may access and search this security information as needed, establishing a rapid and on-demand information exchange network for restricted internal use or public access repositories.  This specification extends the Atom Publishing Protocol and Atom Syndication Format to transport and share security automation resource representations.</t></abstract>
+<abstract><t>This document defines a resource-oriented approach for security automation information publication, discovery, and sharing.  Using this approach, producers may publish, share, and exchange representations of software descriptors, security incidents, attack indicators, software vulnerabilities, configuration checklists, and other security automation information as web-addressable resources. Furthermore, consumers and other stakeholders may access and search this security information as needed, establishing a rapid and on- demand information exchange network for restricted internal use or public access repositories.  This specification extends the Atom Publishing Protocol and Atom Syndication Format to transport and share security automation resource representations.</t></abstract>
 
 </front>
 
-<seriesInfo name='Internet-Draft' value='draft-ietf-mile-rolie-06' />
+<seriesInfo name='Internet-Draft' value='draft-ietf-mile-rolie-07' />
 <format type='TXT'
-        target='http://www.ietf.org/internet-drafts/draft-ietf-mile-rolie-06.txt' />
+        target='http://www.ietf.org/internet-drafts/draft-ietf-mile-rolie-07.txt' />
 </reference>
 
 
@@ -346,87 +346,87 @@ A configuration recommendation is an expression of the desired posture of one or
   </back>
 
 <!-- ##markdown-source:
-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
-QDcMTTPFSHumE1PacubEWxxRrmwIKZrcPxVXT6mv6o5haayPJYKMO61W+JUv
-XM6PLqmYpGgXRy0GBAAQTbXk/bDhqHFI9JXaIEIn4GQlTd2MbYe6qN9Qh4RQ
-bx6hgMKFve1iSFx7gTecAl32qFbopML+o4wm2pzzwmEnRWLW3W6xn13OZIEa
-nA2xwTh1sVMJf+9uYUhrG9FbVy67vGy88dzUi6+gYM9UvYKEmTB80zKwsV4/
-n/Q3ntCN3MZSI9Ym3yftHHqbs5foubdV8hKMrGSWtY95h+AraHOhkC48gNdd
-NKdEmKJVT9NfA485qo6VC4PSnuJ+/Oks/Ha2JdeZzDpHn5VTYnhSZlWH3bOy
-oLqxdZ2zKnM6flkVSahGLlEOLhc0dQw76hx0hcqxOatenABgkkVYvJjNIGTP
-qTZTWlhuD+lrpr1M6wrWe/hJGwf8hLQoqgvVX60LiA27vlVT8cIgvBsqtNIj
-+xZ25H6WHWZzMYjbaTroYio2aq7pUo9Rl+svLsL50uqq+64elB5Jrrropk6J
-nFS/bADMKr7tsmitX9IE4b3MlzSaOgW88wh4JQvnZ8moSwoeLvv7zriejnPw
-9ncs/bAICf7+HPnrvjMCuqdwpnqsSNR9dE8/qCK6f01c+HZjV+6xFexqE5X6
-qpvrpI1xECpgbofuzw5/BvUNTruH2GCsZlBHw8Jwz9ZeZ/r5YNhpq+k/aNLE
-KVLvvK0JHExeXbx5fQwmQsrqHu7QjrSnbYym6hT36Qxzf/Zmcn0fRtQaIR3X
-I8DGMcTp4fkhwWdnOYouqfDstgpDv2+BZIX+gKqDwotQ1wID3/81YVJfR/am
-Hdc0KJ5U0zi44JoG8P43kZWUjEDYiV+6l+TENl+KS2v1vODCZ48ror06e+1t
-du+/Pv69FJ7ALWl0z1I7HuPxAN5LecKSv+QvBlSg2kQu44PR06YBfZ8k6YxW
-4vZiidOzpEY0uTMz/qHEY7vgqn1FtRK1V3wHgsrFqNnzJ38Rr8vylnTCOg7r
-fnhiFbxiRh8mkjrA5XpvKa3b6Qxxc42t+wMo+LnONd1u5fS3GwZhTmiwYl6K
-umj0oUQcdC5NQqvmtdJeSTdlEFTWypcALei61493GlmazVbRbMapbP0cyrmr
-MrphQqqgv5yJ+A9EorHYMYmhv2pJ1ftxffvTsNisPOr95UbX28PrS6PvZPLQ
-W+Fv7acyuY3+DfU84U7pJQAA
+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
+K2/77JsH9LGhaaY4057rxJS2nDnxFleUKxtCiob4T8TVE+qruhNZmvBjiVLG
+nVYrqoQ+yEWDiLyvNbc2TofeURtE4QS3raSpG67tcBb1G+qCEM7NI4QsXNjb
+LobitB8YwS3QV49qhW4p7D/OaIDNdS1cdlokZt3tCPsV5FwWwNms7A3GqVOd
+Svh0dwunrbbZvHXlssvLxhvPTb348vgyMFWvoCgmnKJpGfmvXn896W88pQ9w
+G0uNWJt8n7Zj523OXqCv3lbJCzCyklnWPuYdgi+hzYVCSfBJuu6UuezBFK16
+mh4aOZcj50S5MBXtKe7Hn87Db+dbcp3LrHP1eTklhidlVnXYPS8Lwoat65xX
+mdPxi6pIAuK4BORbLmjEGHbUdeYK6LC5q16cIIkki7B4MZtByJ5TbZatsNxe
+0tdM++2sK1jv4SdtHHIkpAVwLlR/tQYJG3Z9q6biuUEIN1RopUf2LezIPSs7
+zOZiELfTWNB3qNiouaZveJxZGWMx0OZvVFfdd/VU9FgysqIPc0rkpPplk6Ss
+4o9bFu3zC5oSvJf5ksZPZ0jhPO9dycL5wTGwR8GTZP95M65H4Ry8/R1LPxBC
+Eb9/jRp13xnz3FM4E+YqEnUf3dMPQj33r4gL31Lsqi+2gl1tolKPrBkLbYx8
+gHK55bk/P/oZ1Dc47V5ig7GaYRwNBMNntfbrpZ8Bhp22mv6DpklcBvXOTzOB
+g8nLizevTsBEKEvdyx1ajva2jfFTXcY+XUXuz99Mru/DPFojpON6zNc4hjg7
+en1E6bOzHEWXBC677cDQ71ugIKEHIARQeBHqej/wPV4TJvXXx95E45pmwpNq
+GgcXXNO03f8mspKKEQg78Uv3mzixzd/ApbV6XjC42WfUs19Xr/3NDv3Xvd9L
+4THckub0LLXjUR1V3iDlKUv+gk8MCITaRC7jw9GTpsl8nyTpjFbi9isSl2BJ
+zWZyZ2b8Q4k9u2BkviI8RC0Uf/AAOjFq9uzxX8SrsrwlnbCOw7ofkFgFr5jR
+wURSl7dc7y+ldTudIW6+Wuv+kIkm5LmmT1k5/amGQZhTNlgxL0UNDH0oEQed
+LyShHfNaab9AN1AHKmvlS5At6OuuH+E0sjSbraL5i1PZ+hmUc1dl9DkJpYL+
+UCbivweJxmLHtIX+iCVV78f1p56GxWblUe8PNbreHl5fGn0nk4feCv+RfiqT
+2+jfxOkALdglAAA=
 
 -->
 
