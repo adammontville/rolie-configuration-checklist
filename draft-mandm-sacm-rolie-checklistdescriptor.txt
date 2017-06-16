@@ -5,7 +5,7 @@
 Network Working Group                                          B. Munyan
 Internet-Draft                                              A. Montville
 Intended status: Informational              Center for Internet Security
-Expires: December 2, 2017                                   May 31, 2017
+Expires: December 18, 2017                                 June 16, 2017
 
 
        Definition of the ROLIE configuration checklist Extension
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 2, 2017.
+   This Internet-Draft will expire on December 18, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 1]
+Munyan & Montville      Expires December 18, 2017               [Page 1]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 2]
+Munyan & Montville      Expires December 18, 2017               [Page 2]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    Configuration Recommendation A configuration recommendation is an
@@ -165,9 +165,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 3]
+Munyan & Montville      Expires December 18, 2017               [Page 3]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    o  Information regarding a set of patches to be evaluated
@@ -221,9 +221,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 4]
+Munyan & Montville      Expires December 18, 2017               [Page 4]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
 5.2.  The 'rolie:format' Element
@@ -277,9 +277,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 5]
+Munyan & Montville      Expires December 18, 2017               [Page 5]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    o  Product category (0..n), such as
@@ -333,9 +333,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 6]
+Munyan & Montville      Expires December 18, 2017               [Page 6]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
       *  Mail Server
@@ -389,9 +389,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 7]
+Munyan & Montville      Expires December 18, 2017               [Page 7]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    +-----------------+-----------------------------------+-------------+
@@ -445,9 +445,9 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 8]
+Munyan & Montville      Expires December 18, 2017               [Page 8]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
 7.  Security Considerations
@@ -501,9 +501,9 @@ Authors' Addresses
 
 
 
-Munyan & Montville      Expires December 2, 2017                [Page 9]
+Munyan & Montville      Expires December 18, 2017               [Page 9]
 
-Internet-Draft                rolie-cc-ext                      May 2017
+Internet-Draft                rolie-cc-ext                     June 2017
 
 
    Adam Montville
@@ -557,4 +557,4 @@ Internet-Draft                rolie-cc-ext                      May 2017
 
 
 
-Munyan & Montville      Expires December 2, 2017               [Page 10]
+Munyan & Montville      Expires December 18, 2017              [Page 10]
